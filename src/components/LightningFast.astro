@@ -1,0 +1,21 @@
+---
+import { ui } from "../i18n/ui.ts";
+import { useTranslations } from "../i18n/utils.ts";
+import FeatureSection from "./FeatureSection.astro";
+
+interface Props {
+	lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const bullets = ui[lang].sections.fast.bullets;
+---
+
+<FeatureSection
+	title={t("sections.fast.title")}
+	description={t("sections.fast.text")}
+	features={bullets}
+	imagePosition="right"
+	imageLabel={t("sections.fast.title")}
+/>

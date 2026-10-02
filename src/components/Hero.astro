@@ -1,5 +1,6 @@
 ---
 import { useTranslations } from "../i18n/utils.ts";
+import Placeholder from "./Placeholder.astro";
 
 interface Props {
 	lang: "es" | "en";
@@ -7,32 +8,55 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+const title = t("hero.title");
+const words = title.split(" ").filter(Boolean);
+const titleStart = words.slice(0, -1).join(" ");
+const titleAccent = words.slice(-1).join(" ");
 ---
 
-<section class="mx-auto flex w-full max-w-6xl flex-col items-center px-6 py-20 text-center sm:py-28">
-	<p
-		class="mb-4 inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-orange-700"
-	>
-		{t("hero.kicker")}
-	</p>
-	<h1 class="max-w-3xl text-4xl font-bold leading-tight tracking-tight text-stone-900 sm:text-5xl">
-		{t("hero.title")}
-	</h1>
-	<p class="mt-6 max-w-2xl text-lg leading-relaxed text-stone-600">
-		{t("hero.subtitle")}
-	</p>
-	<div class="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-		<a
-			href="#menu"
-			class="inline-flex items-center justify-center rounded-full bg-orange-600 px-8 py-3 text-sm font-semibold text-white shadow-lg shadow-orange-600/20 transition hover:bg-orange-700"
+<section aria-labelledby="hero-heading" class="bg-stone-950 text-stone-50">
+	<div class="mx-auto max-w-6xl px-6 pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-28">
+		<div class="mx-auto max-w-3xl text-center">
+			<p
+				class="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-amber-200/90 sm:text-xs"
+			>
+				{t("hero.kicker")}
+			</p>
+			<h1
+				id="hero-heading"
+				class="mt-6 text-balance text-4xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
+			>
+				{titleStart}{" "}
+				<em class="font-serif font-medium italic text-amber-300">{titleAccent}</em>
+			</h1>
+			<p
+				class="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-stone-300 sm:text-lg"
+			>
+				{t("hero.subtitle")}
+			</p>
+			<div class="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center sm:gap-4">
+				<a
+					href="#menu"
+					class="inline-flex items-center justify-center rounded-full bg-amber-300 px-8 py-3.5 text-sm font-bold text-stone-950 shadow-xl shadow-amber-300/10 transition hover:bg-amber-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-300"
+				>
+					{t("hero.primaryCta")}
+				</a>
+				<a
+					href="#info"
+					class="inline-flex items-center justify-center rounded-full border border-white/20 bg-transparent px-8 py-3.5 text-sm font-bold text-white transition hover:border-white/40 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+				>
+					{t("hero.secondaryCta")}
+				</a>
+			</div>
+		</div>
+
+		<div
+			class="mx-auto mt-12 max-w-5xl overflow-hidden rounded-3xl shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:mt-16"
 		>
-			{t("hero.primaryCta")}
-		</a>
-		<a
-			href="#info"
-			class="inline-flex items-center justify-center rounded-full border border-stone-300 bg-white px-8 py-3 text-sm font-semibold text-stone-900 transition hover:border-stone-400 hover:bg-stone-50"
-		>
-			{t("hero.secondaryCta")}
-		</a>
+			<div 			class="aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] [&>div]:h-full [&>div]:min-h-full [&>div]:rounded-none [&>div]:border-0">
+				<Placeholder label={t("hero.title")} />
+			</div>
+		</div>
 	</div>
 </section>

@@ -1,0 +1,80 @@
+---
+import Placeholder from "./Placeholder.astro";
+
+interface Props {
+	eyebrow?: string;
+	title: string;
+	description: string;
+	features?: string[];
+	linkText?: string;
+	linkHref?: string;
+	imagePosition?: "left" | "right";
+	imageLabel: string;
+	id?: string;
+	variant?: "primary" | "outline";
+	tone?: "sand" | "white";
+}
+
+const {
+	eyebrow,
+	title,
+	description,
+	features,
+	linkText,
+	linkHref,
+	imagePosition = "right",
+	imageLabel,
+	id,
+	variant = "primary",
+	tone = "sand",
+} = Astro.props;
+
+const hasFeatures = features !== undefined && features.length > 0;
+const hasLink = linkText !== undefined && linkText !== "" && linkHref !== undefined && linkHref !== "";
+
+const imageOrder = imagePosition === "left" ? "md:order-1" : "md:order-2";
+const contentOrder = imagePosition === "left" ? "md:order-2" : "md:order-1";
+
+const linkClasses =
+	variant === "outline"
+		? "inline-flex items-center justify-center rounded-full border border-stone-300 bg-transparent px-7 py-3 text-sm font-bold text-stone-900 transition hover:border-stone-500 hover:bg-stone-950 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900"
+		: "inline-flex items-center justify-center rounded-full bg-stone-950 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-stone-950/10 transition hover:bg-orange-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stone-900";
+---
+
+<section id={id} aria-labelledby={id ? `${id}-heading` : undefined} class:list={["scroll-mt-24", tone === "white" && "bg-white"]}>
+	<div class="mx-auto max-w-6xl px-6 py-20 sm:py-24 lg:py-28">
+		<div class="grid items-center gap-10 md:grid-cols-2 md:gap-12 lg:gap-16">
+			<div class={imageOrder}>
+				<Placeholder label={imageLabel} />
+			</div>
+			<div class={contentOrder}>
+				{eyebrow && (
+					<p class="mb-4 inline-flex items-center rounded-full border border-orange-200 bg-orange-50 px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-orange-800">
+						{eyebrow}
+					</p>
+				)}
+				<h2 id={id ? `${id}-heading` : undefined} class="text-balance text-3xl font-extrabold tracking-tight text-stone-950 sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+					{title}
+				</h2>
+				<p class="mt-5 max-w-2xl text-base leading-relaxed text-stone-600 sm:text-lg">
+					{description}
+				</p>
+				{hasFeatures && (
+					<ul class="mt-7 flex flex-col gap-3">
+						{features?.map((feature) => (
+							<li class="flex items-start gap-3 font-medium text-stone-800">
+								<span aria-hidden="true" class="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-orange-700"></span>
+								<span>{feature}</span>
+							</li>
+						))}
+					</ul>
+				)}
+				{hasLink && (
+					<a href={linkHref} class:list={["mt-8", linkClasses]}>
+						{linkText}
+					</a>
+				)}
+			</div>
+		</div>
+	</div>
+</section>

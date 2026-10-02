@@ -1,0 +1,15 @@
+---
+interface Props {
+	label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<div
+	role="img"
+	aria-label={label}
+	class="flex min-h-64 flex-col items-center justify-center gap-1 rounded-3xl border-2 border-dashed border-stone-900/15 bg-orange-50 px-6 py-12 text-center"
+>
+	<p class="text-sm font-semibold text-stone-700">{label}</p>
+</div>

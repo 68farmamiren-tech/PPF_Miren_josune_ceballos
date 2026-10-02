@@ -19,11 +19,10 @@ const es = {
 		home: "Inicio",
 		menu: "Carta",
 		about: "Nosotros",
-		deals: "Promos",
-		contact: "Contacto",
+		main: "Principal",
+		skip: "Saltar al contenido principal",
 		reserve: "Reservar",
 		openMenu: "Abrir menú",
-		closeMenu: "Cerrar menú",
 	},
 	hero: {
 		kicker: "Cocina de temporada",
@@ -32,12 +31,6 @@ const es = {
 			"Platos de ejemplo para practicar la maquetación: menú del día, carta y postres de la casa.",
 		primaryCta: "Ver carta",
 		secondaryCta: "Conócenos",
-	},
-	buttons: {
-		book: "Reservar mesa",
-		viewMenu: "Ver carta",
-		discoverMore: "Descubrir más",
-		order: "Pedir ahora",
 	},
 	sections: {
 		menu: {
@@ -84,6 +77,16 @@ const es = {
 					link: "Leer más",
 				},
 			],
+		},
+		opensource: {
+			title: "Gratis y de código abierto",
+			text: "Texto de ejemplo sobre licencia abierta: úsalo en proyectos personales y comerciales.",
+			bullets: [
+				"Gratis para proyectos personales y comerciales",
+				"Personalizable según tus necesidades",
+				"Soporte de la comunidad y actualizaciones",
+			],
+			link: "Ver código",
 		},
 	},
 	deals: {
@@ -133,8 +136,6 @@ const es = {
 	},
 	langSwitcher: {
 		label: "Idioma",
-		es: "Español",
-		en: "Inglés",
 	},
 };
 
@@ -150,11 +151,10 @@ const en: UiSchema = {
 		home: "Home",
 		menu: "Menu",
 		about: "About",
-		deals: "Deals",
-		contact: "Contact",
+		main: "Main",
+		skip: "Skip to main content",
 		reserve: "Book a table",
 		openMenu: "Open menu",
-		closeMenu: "Close menu",
 	},
 	hero: {
 		kicker: "Seasonal cooking",
@@ -163,12 +163,6 @@ const en: UiSchema = {
 			"Sample copy to practise the layout: daily menu, à la carte and house desserts.",
 		primaryCta: "View menu",
 		secondaryCta: "About us",
-	},
-	buttons: {
-		book: "Book a table",
-		viewMenu: "View menu",
-		discoverMore: "Discover more",
-		order: "Order now",
 	},
 	sections: {
 		menu: {
@@ -215,6 +209,16 @@ const en: UiSchema = {
 					link: "Read more",
 				},
 			],
+		},
+		opensource: {
+			title: "Free and Open Source",
+			text: "Sample copy about open licensing: use it for personal and commercial projects.",
+			bullets: [
+				"Free for personal and commercial projects",
+				"Customizable to your needs",
+				"Community support and updates",
+			],
+			link: "View code",
 		},
 	},
 	deals: {
@@ -264,8 +268,6 @@ const en: UiSchema = {
 	},
 	langSwitcher: {
 		label: "Language",
-		es: "Spanish",
-		en: "English",
 	},
 };
 

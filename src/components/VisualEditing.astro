@@ -1,0 +1,23 @@
+---
+import { useTranslations } from "../i18n/utils.ts";
+import FeatureSection from "./FeatureSection.astro";
+
+interface Props {
+	lang: "es" | "en";
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<FeatureSection
+	id="info"
+	title={t("sections.easy.title")}
+	description={t("sections.easy.text")}
+	linkText={t("sections.easy.link")}
+	linkHref="#info"
+	imagePosition="left"
+	imageLabel={t("sections.easy.title")}
+	variant="outline"
+	tone="white"
+/>
