@@ -16,7 +16,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
+  
   devToolbar: {
     enabled: false,
   },
+
+  site: 'https://68farmamiren.github.io',
+  base: '/PPF_Miren_josune_ceballos',
+
 });
