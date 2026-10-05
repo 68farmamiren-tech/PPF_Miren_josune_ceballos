@@ -15,8 +15,8 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()]
-  }
-  devTool: {
+  },
+  devToolbar: {
     enabled: false,
   },
 });
